@@ -12,15 +12,13 @@ const MobileNav = () => {
         <AlignJustify className="cursor-pointer" />
       </SheetTrigger>
       <SheetContent>
-        <div className="flex flex-col items-center justify-between h-full py-8">
-          <div className="flex flex-col items-center gap-y-32">
-            <Nav
-              containerStyles="flex flex-col items-center gap-y-6 text-2xl"
-              linkStyles="relative hover:text-secondary/50 transition-all"
-              underlineStyles="absolute left-0 top-full h-[2px] bg-black/90 w-full"
-            />
-            <Socials containerStyles="flex gap-x-4" iconStyles="text-2xl" />
-          </div>
+        <div className="flex flex-col items-center h-screen justify-center gap-y-32">
+          <Nav
+            containerStyles="flex flex-col items-center gap-y-6 text-2xl"
+            linkStyles="relative hover:text-black/60 transition-all"
+            underlineStyles="absolute left-0 top-full h-[2px] bg-black/90 w-full"
+          />
+          <Socials containerStyles="flex gap-x-4" iconStyles="text-2xl" />
         </div>
       </SheetContent>
     </Sheet>
