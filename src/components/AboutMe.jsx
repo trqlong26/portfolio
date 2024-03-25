@@ -24,7 +24,7 @@ const AboutMe = () => {
         </p>
         <Link
           href={
-            "https://www.linkedin.com/resume-builder/urn:li:fsd_memberResume:88582596/?edit=true"
+            "https://drive.google.com/file/d/1HJVabgSsh77dStknvOOltwAxo0LlGmxq/view?usp=sharing"
           }
           target="_blank"
           className="mt-10 border border-black py-3 px-3"
