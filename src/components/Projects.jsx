@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { IoCloseCircleOutline } from "react-icons/io5";
 
