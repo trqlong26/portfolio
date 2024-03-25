@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-
+import { slideIn } from "../../variants";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
 const projects = [
@@ -30,18 +30,28 @@ const Projects = () => {
         return (
           <section className="container mx-auto h-[100vh] w-full">
             <div className="flex flex-col lg:flex-row justify-center items-center h-full">
-              <img
+              <motion.img
+                variants={slideIn("left", 0)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false, threshold: 0.3 }}
                 onClick={() => setOpenModal(true)}
                 src={project.thumb}
                 alt=""
-                className="relative lg:w-2/6 shadow-zinc-950 shadow-2xl cursor-pointer"
+                className="relative 2xl::w-2/6 xl:w-2/6 lg:w-2/6 md:w-2/6 sm:w-2/6 shadow-zinc-950 shadow-2xl cursor-pointer"
               />
-              <div className="absolute flex flex-col justify-center items-end lg:right-[400px]">
+              <motion.div
+                variants={slideIn("right", 0)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false, threshold: 0.3 }}
+                className="absolute flex flex-col justify-center items-end lg:right-[400px]"
+              >
                 <h2 className="text-[54px] lg:text-[108px] font-bold">
                   P.0{project.id}
                 </h2>
                 <p className="description font-semibold">{project.name}</p>
-              </div>
+              </motion.div>
             </div>
             {/* modal */}
             {openModal && (
@@ -51,41 +61,76 @@ const Projects = () => {
                   <div className="flex flex-col">
                     {/* modal description */}
                     <div className="flex flex-col lg:flex-row justify-center items-center">
-                      <div className="relative lg:left-[200px]">
+                      <motion.div
+                        variants={slideIn("right", 0)}
+                        initial="hidden"
+                        whileInView={"show"}
+                        viewport={{ once: false, threshold: 0.3 }}
+                        className="relative lg:left-[200px]"
+                      >
                         <h2 className="text-[54px] lg:text-[108px] font-bold">
                           P.0{project.id}
                         </h2>
                         <p className="description font-semibold">
                           {project.name}
                         </p>
-                      </div>
-                      <div className="my-2 lg:my-0">
+                      </motion.div>
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0 }}
+                        transition={{
+                          duration: 0.9,
+                          ease: [0.6, 0.05, 0.1, 0.9],
+                        }}
+                        className="my-2 lg:my-0"
+                      >
                         <img
                           src={project.thumb}
                           alt=""
                           className="relative w-7/12"
                         />
-                      </div>
-                      <div className="relative lg:right-[180px] flex flex-col lg:text-start lg:self-end gap-y-3 font-semibold">
-                        <p>
+                      </motion.div>
+                      <motion.div className="relative lg:right-[180px] flex flex-col lg:text-start lg:self-end gap-y-3 font-semibold">
+                        <motion.p
+                          variants={slideIn("right", 0)}
+                          initial="hidden"
+                          whileInView={"show"}
+                          viewport={{ once: false, threshold: 0.3 }}
+                        >
                           Project name:
                           <br /> {project.name}
-                        </p>
-                        <p>
+                        </motion.p>
+                        <motion.p
+                          variants={slideIn("right", 0.2)}
+                          initial="hidden"
+                          whileInView={"show"}
+                          viewport={{ once: false, threshold: 0.3 }}
+                        >
                           Date created:
                           <br /> {project.date}
-                        </p>
-                        <p>
+                        </motion.p>
+                        <motion.p
+                          variants={slideIn("right", 0.4)}
+                          initial="hidden"
+                          whileInView={"show"}
+                          viewport={{ once: false, threshold: 0.3 }}
+                        >
                           Tools:
                           <br /> {project.tools}
-                        </p>
-                      </div>
+                        </motion.p>
+                      </motion.div>
                     </div>
                     {/* modal body */}
                     <div className="py-20">
-                      <div>
+                      <motion.div
+                        variants={slideIn("down", 0)}
+                        initial="hidden"
+                        whileInView={"show"}
+                        viewport={{ once: false, threshold: 0.3 }}
+                      >
                         <img src={project.images[0]} alt="" />
-                      </div>
+                      </motion.div>
                       <div className="flex flex-col lg:flex-row py-20">
                         <img
                           src={project.images[1]}
